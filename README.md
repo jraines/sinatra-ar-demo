@@ -10,10 +10,14 @@
 0. Now you can create migrations with `bundle exec rake db:create_migration NAME=your_migration_name`
 0. After creating a migration, edit its `change` method to reflect the changes you want to make to your database
 0. Run the migration with `bundle exec rake db:migrate`
+0. You are now ready to define your models (like `class User < ActiveRecord::Base`)
+0. You can declare relationships between them (like `has_many :posts`)
 0. Further schema changes should be implemented by creating & defining new migrations, then running them.
+
 
 ## Other tips
 0. You might want to add your sqlite3 database file to `.gitignore`
 0. Your model classes should be named the singular of their associated table, like `class User` for the users table and `class Dog` for the dogs table.
 0. Don't forget to require the file (or files) where you define your models in your main app file
+0. Don't forget to add foreign keys or join tables as needed as you create new model relationships!
 
