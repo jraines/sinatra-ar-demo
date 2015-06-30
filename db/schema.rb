@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150630181020) do
+ActiveRecord::Schema.define(version: 20150630193513) do
 
   create_table "posts", force: :cascade do |t|
     t.text     "body"
@@ -26,6 +26,17 @@ ActiveRecord::Schema.define(version: 20150630181020) do
     t.boolean "likes_anchovies", default: false
     t.integer "grad_year"
     t.integer "user_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string  "name"
+    t.boolean "private", default: false
+  end
+
+  create_table "user_rooms", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "room_id"
+    t.integer "rating"
   end
 
   create_table "users", force: :cascade do |t|
