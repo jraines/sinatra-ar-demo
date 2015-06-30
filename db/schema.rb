@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150630175152) do
+ActiveRecord::Schema.define(version: 20150630181020) do
 
   create_table "posts", force: :cascade do |t|
     t.text     "body"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 20150630175152) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string  "city",            default: "NYC"
+    t.boolean "likes_anchovies", default: false
+    t.integer "grad_year"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
