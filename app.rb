@@ -5,7 +5,7 @@ require 'bundler/setup'
 require 'rack-flash'
 
 set :database, "sqlite3:ardemo.sqlite3"
-set :sessions, true
+#set :sessions, true
 
 enable :sessions
 
@@ -42,6 +42,6 @@ end
 
 def current_user
   if session[:user_id]
-    @current_user = User.find session[:user_id]
+    User.find session[:user_id]
   end
 end
