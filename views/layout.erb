@@ -13,6 +13,10 @@
 
 <% end %>
 
+<% if current_user %>
+  <a href="/signout">Sign Out</a>
+<% end %>
+
 <%= flash[:warning] if flash[:warning] %>
 
 <p>

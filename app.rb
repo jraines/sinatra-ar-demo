@@ -12,7 +12,15 @@ enable :sessions
 use Rack::Flash, sweep: true
 
 get "/" do
-  erb :index
+  if current_user
+    erb :index
+  else
+    redirect '/login'
+  end
+end
+
+get '/login' do
+  erb :login
 end
 
 get '/welcome' do
@@ -38,6 +46,13 @@ post "/login" do
     flash[:notice] = "Wrong login info, please try again"
     redirect '/'
   end
+end
+
+get '/signout' do
+
+  session[:user_id] = nil
+  flash[:notice] = "Signed Out Successfully.  Come back soon!"
+  redirect '/'
 end
 
 def current_user
